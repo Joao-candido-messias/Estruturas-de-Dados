@@ -1,4 +1,5 @@
 import random
+from util import popular_lista_arquivo
 
 letras = 'abcdefghijklmnopqrstuvwxyz '
 
@@ -14,9 +15,10 @@ while len(lista) < n:
         posicao_letras = random.randint(0, len(letras)-1)
         palavra += letras[posicao_letras]
     
-    lista.append(palavra)
+    if(palavra not in lista):
+        lista.append(palavra)
+        i+=1
 
-print('Palavra sorteada', palavra)
+lista.sort()
 
-for p in lista:
-    print(p)
+popular_lista_arquivo(lista, "nomes.txt")

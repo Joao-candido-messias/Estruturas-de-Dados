@@ -7,4 +7,4 @@ def popular_lista_arquivo(lista, nome_arquivo):
 def ler_arquivo_lista(nome_arquivo, lista):
     with open(nome_arquivo, "r", encoding='utf8') as leitor:
         for linha in leitor:
-            lista.append(int(linha.strip()))
+            lista.append((linha.strip()))

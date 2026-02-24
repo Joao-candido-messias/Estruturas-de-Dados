@@ -14,5 +14,5 @@ while len(lista) < n:
 lista.sort() #Ordenado de maneira crescente
 #lista.sort(reverse = true) Ordenado de maneira decrescente
 
-popular_lista_arquivo(lista, "nomes.txt")
+popular_lista_arquivo(lista, "numeros.txt")
 # print(lista)
