@@ -1,8 +1,9 @@
 import random
+from util import popular_lista_arquivo
 
 lista =[]
 
-n = int(input('Quntos números interiros devem ser gerados?'))
+n = int(input('Quantos números interiros devem ser gerados?'))
 
 
 while len(lista) < n:
@@ -12,4 +13,6 @@ while len(lista) < n:
             
 lista.sort() #Ordenado de maneira crescente
 #lista.sort(reverse = true) Ordenado de maneira decrescente
-print(lista)
+
+popular_lista_arquivo(lista, "nomes.txt")
+# print(lista)
