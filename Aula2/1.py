@@ -1,0 +1,1 @@
+#Operações dobre lista (append), percorrer (for), remover ou deletar (remove)
