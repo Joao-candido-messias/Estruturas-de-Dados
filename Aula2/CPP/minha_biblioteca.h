@@ -20,7 +20,7 @@ void popularAleatorio(vector<int>& lista, int quantidade) {
 }
 
 //-------------------------------
-// Popular um vetor de strings a partir de um arquivo
+// Método que recebe uma lista e a popula com dados vindo de um arquivo.
 void popularDeArquivo(vector<int>& lista, const string& nomeArquivo) {
     ifstream leitor(nomeArquivo);
 
@@ -30,7 +30,7 @@ void popularDeArquivo(vector<int>& lista, const string& nomeArquivo) {
     }
 
     int numero;
-    while (leitor >> numero) { // lê número por número
+    while (leitor >> numero) {
         lista.push_back(numero);
     }
 
@@ -38,7 +38,8 @@ void popularDeArquivo(vector<int>& lista, const string& nomeArquivo) {
 }
 
 //-------------------------------
-// Exibir vetor de inteiros
+//Método que recebe uma lista genérica, exibe todos os seus elementos na tela(um abaixo do outro) e 
+// no final exibe a quantidade de elementos  da lista
 void exibir(const vector<int>& lista) {
     for (int i = 0; i < lista.size(); i++) {
         cout << lista[i] << endl;
@@ -49,7 +50,7 @@ void exibir(const vector<int>& lista) {
 
 
 //-------------------------------
-// Copiar lista de inteiros sem duplicatas
+//Função que recebe uma lista de origem e copia seus elementos para uma lista destino, removendo as duplicatas
 void copiarListaSemReplicados(const vector<int>& origem, vector<int>& destino) {
     for (int i = 0; i < origem.size(); i++) {
         bool existe = false;
