@@ -21,9 +21,31 @@ class Glicemia:
         return f'Valor Glicemia : {self.valor}. Data: {self.data}. Hora: {self.hora}'
 
     @staticmethod
+        """Metodo que calcula a média glicêmica a partir de uma lista de objetos Glicemia
+
+            Args:
+                lista (list): Lista de objetos Glicemia
+        """
     def calcular_media(lista):
         soma =  0
         for item in lista:
             soma += float(item.valor)
         
         return round(soma/len(lista), 2)
+    
+    @staticmethod
+
+        """Metodo que calcula a mediana a partir de uma lista de objetos Glicemia
+            Args:
+                lista (list): Lista de objetos Glicemia
+        """
+    def calcular_mediana(lista):
+        
+        lista_ordenada = sorted(lista, key=lambda x: x.valor)
+        n = len(lista_ordenada)
+    
+        if n % 2 == 1:  
+            return lista_ordenada[n // 2].valor
+        else:           
+            meio = n // 2
+        return (lista_ordenada[meio - 1].valor + lista_ordenada[meio].valor) / 2
