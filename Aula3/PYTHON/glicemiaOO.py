@@ -19,3 +19,5 @@ for medicao in lista_glicemica:
 print(f"Número de registros glicêmicos: {len(lista_glicemica)}")
 
 print(f"Média glicêmica da amostra: {Glicemia.calcular_media(lista_glicemica)}")
+
+print(f"Mediana glicêmica da amostra: {Glicemia.calcular_mediana(lista_glicemica)}")
