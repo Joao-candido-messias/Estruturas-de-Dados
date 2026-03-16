@@ -7,6 +7,7 @@ public class Principal {
         ArrayList<Aluno> alunos = new ArrayList<>();
         
         Scanner scanner = new Scanner(System.in);
+        
         for (int i = 0; i < 3; i++) {
             System.out.print("Digite o nome do aluno: ");
             String nome = scanner.nextLine().toUpperCase();
@@ -14,6 +15,8 @@ public class Principal {
             if (!alunos.contains(aluno)) {
                 alunos.add(aluno);
             }
+
+            alunos.sort((a1, a2) -> a1.nome.compareTo(a2.nome));
         }
         
         for (Aluno aluno : alunos) {
