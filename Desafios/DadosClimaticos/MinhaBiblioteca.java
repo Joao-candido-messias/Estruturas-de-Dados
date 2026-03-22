@@ -65,19 +65,89 @@ public class MinhaBiblioteca {
             }
         }
 
-        // /**
+        
         //  * Determina a estação do ano com base no mês.
         //  *
         //  * @param mes Mês da medição climática
         //  * @return Estação do ano (1-Primavera, 2-Verão, 3-Outono, 4-Inverno)
         //  */
-        // public static int descobrirEstacao(int mes) {
-        //     // implementação aqui
-        // }
+        public static int descobrirEstacao(int mes) {
+            if (mes >= 3 && mes <= 5) {
+                return 3; // Outono
+            } else if (mes >= 6 && mes <= 8) {
+                return 4; // Inverno
+            } else if (mes >= 9 && mes <= 11) {
+                return 1; // Primavera
+            } else {
+                return 2; // Verão (dez, jan, fev)
+            }
+        }
 
-        // public static void acumularDadosPorEstacao() {
-        //     // implementação aqui
-        // }
+        public static void acumularDadosPorEstacao(ArrayList<RegistroClimatico> registros) {
+
+            int[] soma = new int[5]; // índices 1 a 4
+
+            for (RegistroClimatico r : registros) {
+
+                int mesNumero = mesParaNumero(r.mes);
+                int estacao = descobrirEstacao(mesNumero);
+                int peso = pesoPrecipitacao(r.precipitacao);
+
+                soma[estacao] += peso;
+            }
+
+            int maisChuvosa = 1;
+            int menosChuvosa = 1;
+
+            for (int i = 2; i <= 4; i++) {
+                if (soma[i] > soma[maisChuvosa]) {
+                    maisChuvosa = i;
+                }
+                if (soma[i] < soma[menosChuvosa]) {
+                    menosChuvosa = i;
+                }
+            }
+
+            System.out.println("Mais chuvosa: " + nomeEstacao(maisChuvosa));
+            System.out.println("Menos chuvosa: " + nomeEstacao(menosChuvosa));
+        }
+
+        public static int mesParaNumero(String mes) {
+            switch (mes.toLowerCase()) {
+                case "janeiro": return 1;
+                case "fevereiro": return 2;
+                case "março": return 3;
+                case "abril": return 4;
+                case "maio": return 5;
+                case "junho": return 6;
+                case "julho": return 7;
+                case "agosto": return 8;
+                case "setembro": return 9;
+                case "outubro": return 10;
+                case "novembro": return 11;
+                case "dezembro": return 12;
+                default: return 0;
+            }
+        }
+
+        public static int pesoPrecipitacao(String p) {
+            switch (p.toLowerCase()) {
+                case "muita": return 3;
+                case "media": return 2;
+                case "pouca": return 1;
+                default: return 0;
+            }
+        }
+
+        public static String nomeEstacao(int e) {
+            switch (e) {
+                case 1: return "Primavera";
+                case 2: return "Verão";
+                case 3: return "Outono";
+                case 4: return "Inverno";
+                default: return "";
+            }
+        }
 
         // public static void imprimirResultados() {
         //     // implementação aqui
