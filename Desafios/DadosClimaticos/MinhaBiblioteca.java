@@ -83,6 +83,11 @@ public class MinhaBiblioteca {
             }
         }
 
+        /**
+         * Função que acumula dados por estação.
+         *
+         * @param registros Lista de registros climáticos
+         */
         public static void acumularDadosPorEstacao(ArrayList<RegistroClimatico> registros) {
 
             int[] soma = new int[5]; // índices 1 a 4
@@ -112,6 +117,12 @@ public class MinhaBiblioteca {
             System.out.println("Menos chuvosa: " + nomeEstacao(menosChuvosa));
         }
 
+        /**
+         * Converte o nome de um mês para seu número correspondente.
+         *
+         * @param mes Nome do mês
+         * @return Número do mês (1-12)
+         */
         public static int mesParaNumero(String mes) {
             switch (mes.toLowerCase()) {
                 case "janeiro": return 1;
@@ -130,6 +141,12 @@ public class MinhaBiblioteca {
             }
         }
 
+        /**
+         * Determina o peso da precipitação com base em sua magnitude.
+         *
+         * @param p Magnitude da precipitação
+         * @return Peso da precipitação (1-3)
+         */
         public static int pesoPrecipitacao(String p) {
             switch (p.toLowerCase()) {
                 case "muita": return 3;
@@ -139,6 +156,12 @@ public class MinhaBiblioteca {
             }
         }
 
+        /**
+         * Função que retorna o nome da estação com base em seu número.
+         *
+         * @param e Número da estação (1-4)
+         * @return Nome da estação
+         */
         public static String nomeEstacao(int e) {
             switch (e) {
                 case 1: return "Primavera";
@@ -149,9 +172,6 @@ public class MinhaBiblioteca {
             }
         }
 
-        // public static void imprimirResultados() {
-        //     // implementação aqui
-        // }
 
         @Override
         public String toString() {
