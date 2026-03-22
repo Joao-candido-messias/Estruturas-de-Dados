@@ -90,31 +90,46 @@ public class MinhaBiblioteca {
          */
         public static void acumularDadosPorEstacao(ArrayList<RegistroClimatico> registros) {
 
-            int[] soma = new int[5]; // índices 1 a 4
+            // [ano][estacao]
+            java.util.HashMap<Integer, int[]> dados = new java.util.HashMap<>();
 
             for (RegistroClimatico r : registros) {
 
                 int mesNumero = mesParaNumero(r.mes);
+                if (mesNumero == 0) continue;
+
                 int estacao = descobrirEstacao(mesNumero);
                 int peso = pesoPrecipitacao(r.precipitacao);
 
-                soma[estacao] += peso;
+                dados.putIfAbsent(r.ano, new int[5]);
+                dados.get(r.ano)[estacao] += peso;
             }
 
-            int maisChuvosa = 1;
-            int menosChuvosa = 1;
+            int anoMais = 0, estMais = 0, max = Integer.MIN_VALUE;
+            int anoMenos = 0, estMenos = 0, min = Integer.MAX_VALUE;
 
-            for (int i = 2; i <= 4; i++) {
-                if (soma[i] > soma[maisChuvosa]) {
-                    maisChuvosa = i;
-                }
-                if (soma[i] < soma[menosChuvosa]) {
-                    menosChuvosa = i;
+            for (Integer ano : dados.keySet()) {
+                int[] soma = dados.get(ano);
+
+                for (int e = 1; e <= 4; e++) {
+
+                    if (soma[e] > max) {
+                        max = soma[e];
+                        anoMais = ano;
+                        estMais = e;
+                    }
+
+                    // ignora estações sem dados
+                    if (soma[e] > 0 && soma[e] < min) {
+                        min = soma[e];
+                        anoMenos = ano;
+                        estMenos = e;
+                    }
                 }
             }
 
-            System.out.println("Mais chuvosa: " + nomeEstacao(maisChuvosa));
-            System.out.println("Menos chuvosa: " + nomeEstacao(menosChuvosa));
+            System.out.println("Mais chuvosa: " + nomeEstacao(estMais) + " de " + anoMais);
+            System.out.println("Menos chuvosa: " + nomeEstacao(estMenos) + " de " + anoMenos);
         }
 
         /**
@@ -171,7 +186,6 @@ public class MinhaBiblioteca {
                 default: return "";
             }
         }
-
 
         @Override
         public String toString() {
