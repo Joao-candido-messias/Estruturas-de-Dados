@@ -84,11 +84,11 @@ public class MinhaBiblioteca {
         }
 
         /**
-         * Função que acumula dados por estação.
+         * Função analisa os dados retornando as estações mais e menos chuvosas dentro do recorte analisado
          *
          * @param registros Lista de registros climáticos
          */
-        public static void acumularDadosPorEstacao(ArrayList<RegistroClimatico> registros) {
+        public static void precipitacaoPorEstacao(ArrayList<RegistroClimatico> registros) {
 
             // [ano][estacao]
             java.util.HashMap<Integer, int[]> dados = new java.util.HashMap<>();
@@ -132,6 +132,55 @@ public class MinhaBiblioteca {
             System.out.println("Menos chuvosa: " + nomeEstacao(estMenos) + " de " + anoMenos);
         }
 
+         /**
+         * Função analisa os dados retornando as estações mais e menos chuvosas dentro do recorte analisado
+         *
+         * @param registros Lista de registros climáticos
+         */
+        public static void temperaturaPorEstacao(ArrayList<RegistroClimatico> registros) {
+
+            // [ano][estacao]
+            java.util.HashMap<Integer, int[]> dados = new java.util.HashMap<>();
+
+            for (RegistroClimatico r : registros) {
+
+                int mesNumero = mesParaNumero(r.mes);
+                if (mesNumero == 0) continue;
+
+                int estacao = descobrirEstacao(mesNumero);
+                int peso = pesoTemperatura(r.temperatura);
+
+                dados.putIfAbsent(r.ano, new int[5]);
+                dados.get(r.ano)[estacao] += peso;
+            }
+
+            int anoMais = 0, estMais = 0, max = Integer.MIN_VALUE;
+            int anoMenos = 0, estMenos = 0, min = Integer.MAX_VALUE;
+
+            for (Integer ano : dados.keySet()) {
+                int[] soma = dados.get(ano);
+
+                for (int e = 1; e <= 4; e++) {
+
+                    if (soma[e] > max) {
+                        max = soma[e];
+                        anoMais = ano;
+                        estMais = e;
+                    }
+
+                    // ignora estações sem dados
+                    if (soma[e] > 0 && soma[e] < min) {
+                        min = soma[e];
+                        anoMenos = ano;
+                        estMenos = e;
+                    }
+                }
+            }
+
+            System.out.println("Mais quente: " + nomeEstacao(estMais) + " de " + anoMais);
+            System.out.println("Mais fria: " + nomeEstacao(estMenos) + " de " + anoMenos);
+        }
+
         /**
          * Converte o nome de um mês para seu número correspondente.
          *
@@ -157,7 +206,7 @@ public class MinhaBiblioteca {
         }
 
         /**
-         * Determina o peso da precipitação com base em sua magnitude.
+         * Função que determina o peso da precipitação com base em sua magnitude.
          *
          * @param p Magnitude da precipitação
          * @return Peso da precipitação (1-3)
@@ -167,6 +216,21 @@ public class MinhaBiblioteca {
                 case "muita": return 3;
                 case "media": return 2;
                 case "pouca": return 1;
+                default: return 0;
+            }
+        }
+
+         /**
+         * Função que determina o peso da temperatura com base em sua magnitude.
+         *
+         * @param p Magnitude da temperatura
+         * @return Peso da temperatura (1-3)
+         */
+        public static int pesoTemperatura(String p) {
+            switch (p.toLowerCase()) {
+                case "quente": return 3;
+                case "ameno": return 2;
+                case "frio": return 1;
                 default: return 0;
             }
         }
