@@ -22,9 +22,9 @@ public class MinhaBiblioteca {
         }
 
         /**
-         * Lê um arquivo CSV e retorna uma lista de registros climáticos.
+         * Função que lê um arquivo CSV e retorna uma lista de registros climáticos.
          *
-         * @param caminho Caminho do arquivo CSV
+         * @param caminho: Caminho do arquivo CSV
          * @return Lista de registros climáticos
          * @throws IOException Se ocorrer erro na leitura do arquivo
          */
@@ -34,7 +34,7 @@ public class MinhaBiblioteca {
 
             try (BufferedReader br = new BufferedReader(new FileReader(caminho))) {
 
-                // Pula o cabeçalho
+                // Ignora o cabeçalho do csv 
                 br.readLine();
 
                 String linha;
@@ -66,9 +66,9 @@ public class MinhaBiblioteca {
         }
 
         
-        //  * Determina a estação do ano com base no mês.
+        //  * Função que determina a estação do ano com base no mês.
         //  *
-        //  * @param mes Mês da medição climática
+        //  * @param mes: Mês da medição climática
         //  * @return Estação do ano (1-Primavera, 2-Verão, 3-Outono, 4-Inverno)
         //  */
         public static int descobrirEstacao(int mes) {
@@ -86,7 +86,7 @@ public class MinhaBiblioteca {
         /**
          * Função analisa os dados retornando as estações mais e menos chuvosas dentro do recorte analisado
          *
-         * @param registros Lista de registros climáticos
+         * @param registros: Lista de registros climáticos
          */
         public static void precipitacaoPorEstacao(ArrayList<RegistroClimatico> registros) {
 
@@ -135,7 +135,7 @@ public class MinhaBiblioteca {
          /**
          * Função analisa os dados retornando as estações mais e menos chuvosas dentro do recorte analisado
          *
-         * @param registros Lista de registros climáticos
+         * @param registros: Lista de registros climáticos
          */
         public static void temperaturaPorEstacao(ArrayList<RegistroClimatico> registros) {
 
@@ -182,9 +182,9 @@ public class MinhaBiblioteca {
         }
 
         /**
-         * Converte o nome de um mês para seu número correspondente.
+         * Função que converte o nome de um mês para seu número correspondente.
          *
-         * @param mes Nome do mês
+         * @param mes: Nome do mês
          * @return Número do mês (1-12)
          */
         public static int mesParaNumero(String mes) {
@@ -208,7 +208,7 @@ public class MinhaBiblioteca {
         /**
          * Função que determina o peso da precipitação com base em sua magnitude.
          *
-         * @param p Magnitude da precipitação
+         * @param p: Magnitude da precipitação
          * @return Peso da precipitação (1-3)
          */
         public static int pesoPrecipitacao(String p) {
@@ -223,7 +223,7 @@ public class MinhaBiblioteca {
          /**
          * Função que determina o peso da temperatura com base em sua magnitude.
          *
-         * @param p Magnitude da temperatura
+         * @param p: Magnitude da temperatura
          * @return Peso da temperatura (1-3)
          */
         public static int pesoTemperatura(String p) {
@@ -238,7 +238,7 @@ public class MinhaBiblioteca {
         /**
          * Função que retorna o nome da estação com base em seu número.
          *
-         * @param e Número da estação (1-4)
+         * @param e: Número da estação (1-4)
          * @return Nome da estação
          */
         public static String nomeEstacao(int e) {
