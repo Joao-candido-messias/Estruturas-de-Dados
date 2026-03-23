@@ -9,10 +9,10 @@ public class Principal {
         try {
             ArrayList<RegistroClimatico> registros = RegistroClimatico.lerCSV("./Desafios/DadosClimaticos/dadosClimaticos.csv");
 
-            // Exemplo: imprimir cada registro
-            for (RegistroClimatico r : registros) {
-                System.out.println(r);
-            }
+            // // Exemplo: imprimir cada registro
+            // for (RegistroClimatico r : registros) {
+            //     System.out.println(r);
+            // }
 
             System.out.println("\n--- DEBUG (soma por estação/ano) ---");
 
