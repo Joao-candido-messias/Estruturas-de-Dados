@@ -84,7 +84,7 @@ public class MinhaBiblioteca {
         }
 
         /**
-         * Função analisa os dados retornando as estações mais e menos chuvosas dentro do recorte analisado
+         * Função analisa os dados e  retorna as estações mais e menos chuvosas dentro do recorte analisado.
          *
          * @param registros: Lista de registros climáticos
          */
@@ -128,12 +128,12 @@ public class MinhaBiblioteca {
                 }
             }
 
-            System.out.println("Mais chuvosa: " + nomeEstacao(estMais) + " de " + anoMais);
-            System.out.println("Menos chuvosa: " + nomeEstacao(estMenos) + " de " + anoMenos);
+            System.out.println("Estação mais chuvosa: " + nomeEstacao(estMais) + " de " + anoMais);
+            System.out.println("Estação menos chuvosa: " + nomeEstacao(estMenos) + " de " + anoMenos);
         }
 
          /**
-         * Função analisa os dados retornando as estações mais e menos chuvosas dentro do recorte analisado
+         * Função analisa os dados e retorna as estações mais e menos chuvosas dentro do recorte analisado.
          *
          * @param registros: Lista de registros climáticos
          */
@@ -177,8 +177,8 @@ public class MinhaBiblioteca {
                 }
             }
 
-            System.out.println("Mais quente: " + nomeEstacao(estMais) + " de " + anoMais);
-            System.out.println("Mais fria: " + nomeEstacao(estMenos) + " de " + anoMenos);
+            System.out.println("Estação mais quente: " + nomeEstacao(estMais) + " de " + anoMais);
+            System.out.println("Estação mais fria: " + nomeEstacao(estMenos) + " de " + anoMenos);
         }
 
         /**
