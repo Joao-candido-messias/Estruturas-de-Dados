@@ -1,3 +1,4 @@
+package JAVA;
 public class Dado {
     private int valor;
     private int linha;
