@@ -2,10 +2,10 @@ import java.util.ArrayList;
 
 public class Matriz{
     /*
-    *Método que inicializa uma matriz de inteiros
-    *@param matriz -> Matriz de numeros inteiros
-    *@param qtdl -> Quantidade de linhas
-    *@param qtdc -> Quantidade de colunas
+    *Método que inicializa uma matriz de inteiros.
+    *@param matriz -> Matriz de numeros inteiros.
+    *@param qtdl -> Quantidade de linhas.
+    *@param qtdc -> Quantidade de colunas.
     */
     public static void incializarMatriz(int matriz[][], int qtdl, int qtdc){
         for(int i = 0; i< qtdl; i++){
@@ -16,10 +16,10 @@ public class Matriz{
     }
 
     /*
-    *Método que exibe uma matriz de inteiros
-    *@param matriz -> Matriz de de numeros inteiros
-    *@param qtdl -> Quantidade de linhas
-    *@param qtdc -> Quantidade de colunas
+    *Método que exibe uma matriz de inteiros.
+    *@param matriz -> Matriz de de numeros inteiros.
+    *@param qtdl -> Quantidade de linhas.
+    *@param qtdc -> Quantidade de colunas.
     */
     public static void exibirMatriz(int matriz[][], int qtdl, int qtdc){
         for(int i = 0; i < qtdl; i++){
@@ -32,11 +32,11 @@ public class Matriz{
 
 
     /*
-    *Método que converte uma matriz de inteiros para uma lista
-    *@param matriz -> Matriz de numeros inteiros
-    *@param qtdl -> Quantidade de linhas
-    *@param qtdc -> Quantidade de colunas
-    *@param lista -> Lista de inteiros que recebe os valores convertidos
+    *Método que converte uma matriz de inteiros para uma lista.
+    *@param matriz -> Matriz de numeros inteiros.
+    *@param qtdl -> Quantidade de linhas.
+    *@param qtdc -> Quantidade de colunas.
+    *@param lista -> Lista de inteiros que recebe os valores convertidos.
     */
     public static void converterMatrizLista(int matriz[][], int qtdl, int qtdc, ArrayList<Dado> lista){
         for(int i = 0; i< qtdl; i++){
@@ -49,7 +49,10 @@ public class Matriz{
     }
 
 
-
+    /*Método que exibe uma lista de objetos Dado.
+    *@param lista -> Lista de objetos do tipo Dado.
+    *
+    */
     public static void exibirLista(ArrayList<Dado> lista){
         for(Dado dado : lista){
             System.out.println(dado);
