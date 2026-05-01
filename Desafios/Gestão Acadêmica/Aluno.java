@@ -36,4 +36,26 @@ public class Aluno{
         return anoIngresso;
     }
 
+    @Override
+    public String toString(){
+        return"Aluno: {"+
+        "Nome: " +nome+ "," +
+        "Curso " +curso+ "," +
+        "Sexo: " +sexo+ "," +
+        "Ano de ingresso: " +anoIngresso+
+        ".}";
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        
+        if(this == obj) return true;
+
+        if(obj == null || getClass() != obj.getClass()) return false;
+
+        Aluno aluno = (Aluno) obj;
+
+        return this.nome.equals(aluno.nome) && this.anoIngresso == aluno.anoIngresso;
+    }
+
 }
