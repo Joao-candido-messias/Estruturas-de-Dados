@@ -1,6 +1,9 @@
+package Desafios.GestaoAcademica;
 import java.util.ArrayList;
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.Comparator;
 
 public class Aluno{
     private String nome;
@@ -16,27 +19,27 @@ public class Aluno{
     }
 
     //Geter de nome
-    public String GetNome(){
+    public String getNome(){
         return nome;
     }
 
     //Geter de curso
-    public String GetCurso(){
+    public String getCurso(){
         return curso;
     }
 
     //Setter de curso
-    public void Setcurso(String curso){
+    public void setCurso(String curso){
         this.curso = curso;
     }
 
     //Getter de sexo
-    public String GetSexo(){
+    public String getSexo(){
         return sexo;
     }
 
     //Getter de anoIngresso
-    public int GetAnoIngresso(){
+    public int getAnoIngresso(){
         return anoIngresso;
     }
 
