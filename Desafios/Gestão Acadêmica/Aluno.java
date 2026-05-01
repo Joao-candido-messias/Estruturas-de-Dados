@@ -40,6 +40,16 @@ public class Aluno{
         return anoIngresso;
     }
 
+    /**
+         * Função que ordena uma lista de alunos pelo ano de ingresso
+         * @param lista: Lista de alunos a ser tratada
+         * @return Lista de alunos ordenada pelo ano de ingresso
+         */
+        public static ArrayList<Aluno> ordenaPorAno(ArrayList<Aluno> lista){
+            lista.sort(Comparator.comparingInt(Aluno::getAnoIngresso));
+            return lista;
+        }
+
 
     /**
     * Função que lê um arquivo .csv e retorna uma lista de alunos
@@ -78,7 +88,7 @@ public class Aluno{
                 alunos.add(new Aluno(nome, curso, sexo, anoIngresso));
             }
         }
-        return alunos;
+        return ordenaPorAno(alunos);
     }
 
     @Override

@@ -3,7 +3,7 @@ Objetivo: Implementar um sistema que processe o histórico de ingressantes e ger
 Tarefas:
 * Criar uma classe Aluno com os atributos correspondentes (ver arquivo - Nome,Curso,Sexo,AnoIngresso).✅
 
-* Ler o arquivo alunos.csv, instanciar os objetos e armazená-los em uma lista.
+* Ler o arquivo alunos.csv, instanciar os objetos e armazená-los em uma lista.✅
 
 * Criar funções (orientadas a objetos) 
      * Ordenar a lista final por "Ano de Ingresso" ou "Nome" antes de exibir
