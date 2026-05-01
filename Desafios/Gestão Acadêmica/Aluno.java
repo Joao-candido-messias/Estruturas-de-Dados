@@ -1,8 +1,8 @@
-public static class Aluno{
-    public String nome;
-    public String curso;
-    public String sexo; 
-    public int anoIngresso;
+public class Aluno{
+    private String nome;
+    private String curso;
+    private String sexo; 
+    private int anoIngresso;
 
     public Aluno(String nome, String curso, String sexo, int anoIngresso){
         this.nome = nome;
@@ -10,4 +10,30 @@ public static class Aluno{
         this.sexo = sexo;
         this.anoIngresso = anoIngresso;
     }
+
+    //Geter de nome
+    public String GetNome(){
+        return nome;
+    }
+
+    //Geter de curso
+    public String GetCurso(){
+        return curso;
+    }
+
+    //Setter de curso
+    public void Setcurso(String curso){
+        this.curso = curso;
+    }
+
+    //Getter de sexo
+    public String GetSexo(){
+        return sexo;
+    }
+
+    //Getter de anoIngresso
+    public int GetAnoIngresso(){
+        return anoIngresso;
+    }
+
 }
