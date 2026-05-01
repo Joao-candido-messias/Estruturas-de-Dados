@@ -6,6 +6,6 @@ Tarefas:
 * Ler o arquivo alunos.csv, instanciar os objetos e armazená-los em uma lista.✅
 
 * Criar funções (orientadas a objetos) 
-     * Ordenar a lista final por "Ano de Ingresso" ou "Nome" antes de exibir
+     * Ordenar a lista final por "Ano de Ingresso" ou "Nome" antes de exibir✅
      * Criar um método que busque um aluno pelo nome exato na lista e retorne seus dados.
 * Agregação: Calcular quantos alunos ingressaram em cada ano.
