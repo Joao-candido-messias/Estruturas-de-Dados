@@ -91,6 +91,23 @@ public class Aluno{
         return ordenaPorAno(alunos);
     }
 
+
+    /**
+     * Função que busca aluno pelo nome exato na lista e retorne seus dados.
+     * @param nome: Nome que deve ser buscado na lista de Alunos 
+     * @param lista: Lista de Alunos para busca
+     * @return: Curso, sexo e ano de ingresso do aluno
+     * @throws IOException: Se o aluno pesquisado não estiver na lista de Alunos
+     */
+    public static String buscaAluno(String nome, ArrayList<Aluno> lista) throws IOException{
+        for(Aluno aluno : lista){
+            if(aluno.getNome().equals(nome)){
+                return aluno.toString();
+            }  
+        }
+        throw new IOException("Aluno não encontrado");
+    }
+
     @Override
     public String toString(){
         return"Aluno: {"+
