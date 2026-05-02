@@ -44,6 +44,34 @@ public class Aluno{
     }
 
     /**
+     * Função que a partir de uma lista de Alunos retorna quantos alunos ingressaram em cada ano
+     * @Param lista: Lista de Alunos
+     * @return: Quantidade de alunos que ingressaram em cada ano
+     */
+    public static void ingressosPorAno(ArrayList<Aluno> lista){
+        ArrayList<Integer> anos = new ArrayList<>();
+        ArrayList<Integer> quantidades = new ArrayList<>();
+
+        for(Aluno aluno : lista){
+            int ano = aluno.getAnoIngresso();
+            int index = anos.indexOf(ano);
+
+            if(index != -1){
+                //Incrementa no caso de o ano já ter sido computado
+                quantidades.set(index, quantidades.get(index) +1);
+            }else{
+                anos.add(ano);
+                quantidades.add(1);
+            } 
+        }
+
+        System.out.println("Quantidade de alunos que ingressaram em cada ano:");
+        for(int i = 0; i<anos.size(); i++){
+            System.out.println(anos.get(i)+":"+quantidades.get(i));
+        }
+    }
+
+    /**
          * Função que ordena uma lista de alunos pelo ano de ingresso
          * @param lista: Lista de alunos a ser tratada
          * @return Lista de alunos ordenada pelo ano de ingresso
@@ -90,6 +118,7 @@ public class Aluno{
 
                 alunos.add(new Aluno(nome, curso, sexo, anoIngresso));
             }
+            ingressosPorAno(alunos);
         }
         return ordenaPorAno(alunos);
     }
