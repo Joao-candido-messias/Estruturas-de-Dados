@@ -1,4 +1,13 @@
+import java.util.ArrayList;
+import java.io.BufferedWriter;
+import java.io.fileWriter;
+import java.io.IOException;
+
+import java.util.Scanner;
+
 public class Figura{
+    Scanner scanner = new Scanner(System.in);
+
     private String nomeSelecao;
     private int numeroFigura;
     private String descricao;
@@ -40,7 +49,7 @@ public class Figura{
     }
 
     //Getter de eRara
-    public boolean getErara(){
+    public boolean getERara(){
         return this.eRara;
     }
     //Setter de eRara
@@ -49,8 +58,44 @@ public class Figura{
     }
 
     /**
+     * Metodo que cadastra novas figuras desejadas
+     * @param lista ArrayList de objetos Figura que armazena as figuras desejadas
+     * @param nomeSelecao Nome da seleção da figura desejada
+     * @param numeroFigura Numero identificador da figura desejada
+     * @param descricao Descrição da figura desejada
+     * @param eRara Raridade da figura desejada
+     */
+    public static void cadastraFigurasDesejadasPessoal(ArrayList<Figura> lista, String nomeSelecao, int numeroFigura, String descricao, boolean eRara){
+        Figura figuraDesejada = new Figura(nomeSelecao, numeroFigura, descricao, eRara);
+        lista.add(figuraDesejada);
+
+    }
+
+
+    /**
+     * Metodo que salva uma lista de Figuras desejadas em um arquivo .csv
+     * @param lista Lista de Figuras a ser salva
+     * @param caminho Caminho do arquivo .csv de destino
+     */
+    public static void salvarFigurasDesejadasPessoal(ArrayList<Figura> lista, String caminho){
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(caminho))){
+            for(Figura f : lista){
+                writer.write(
+                    f.getNomeSelecao()+","+
+                    f.getNumeroFigura()+","+
+                    f.getDescricao()+","+
+                    f.getERara()
+                );
+                writer.newLine();
+            }
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    /**
      * Metodo toString para classe Figura
-     * @return: Nome da seleção, numeral e raridade da Figura
+     * @return Nome da seleção, numeral e raridade da Figura
      */
     @Override
     public String toString(){
@@ -63,7 +108,7 @@ public class Figura{
 
     /**
      * Metodo que garante que uma figura com mesma selação e numeral seja instanciada
-     * @param Object: Figura a ser comprada
+     * @param Object Figura a ser comprada
      * @return: True se forem iguais ; False caso contrário
      */
     @Override
