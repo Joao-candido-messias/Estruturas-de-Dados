@@ -68,7 +68,6 @@ public class Figura{
     public static void cadastraFigurasDesejadasPessoal(ArrayList<Figura> lista, String nomeSelecao, int numeroFigura, String descricao, boolean eRara){
         Figura figuraDesejada = new Figura(nomeSelecao, numeroFigura, descricao, eRara);
         lista.add(figuraDesejada);
-
     }
 
 
@@ -93,6 +92,17 @@ public class Figura{
         }
     }
 
+    /**
+     * Metodo que exibe um ArrayList de Figuras desejadas
+     * @param lista Lista de Figuras desejadas
+     */
+    public void listarFigurasDesejadas(ArrayList<Figura> lista){
+        for(Figura f: lista){
+            System.out.println(f);
+        }
+    }
+
+    
     /**
      * Metodo toString para classe Figura
      * @return Nome da seleção, numeral e raridade da Figura
